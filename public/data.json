@@ -1,0 +1,47 @@
+[   
+    {
+        "nombre": "Sudadera 1",
+        "stock": 10,
+        "precio": 1000,
+        "categoria": "Sudadera",
+        "id": 1,
+        "igm": "",
+        "initial": 1
+    },
+    {
+        "nombre": "Sudadera 2",
+        "stock": 5,
+        "precio": 1500,
+        "categoria": "Sudadera",
+        "id": 2,
+        "igm": "",
+        "initial": 1
+    },
+    {
+        "nombre": "Sudadera 3",
+        "stock": 4,
+        "precio": 2000,
+        "categoria": "Sudadera",
+        "id": 2,
+        "igm": "",
+        "initial": 1
+    },
+    {
+        "nombre": "Buzo 1",
+        "stock": 10,
+        "precio": 1000,
+        "categoria": "Buzo",
+        "id": 4,
+        "igm": "",
+        "initial": 1
+    },
+    {
+        "nombre": "Buzo 2",
+        "stock": 10,
+        "precio": 1000,
+        "categoria": "Buzo",
+        "id": 5,
+        "igm": "",
+        "initial": 1
+    }
+]
