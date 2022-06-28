@@ -2,13 +2,24 @@ import { useState , useEffect } from "react";
 import React from 'react'
 import Item from './Item'
 
+function getItem(){
+  return new Promise((resolve,reject) =>{
+    setTimeout(() => {
+      let item = [];
+      fetch('data.json')
+        .then((resp) => resp.json())
+        .then((data) => resolve(data))   
+    }, 500);
+  })
+}
+
 function ItemList() {
     const [info, setinfo] = useState([])
 
     useEffect(() => {
-        fetch('data.json')
-        .then((resp) => resp.json())
-        .then((data) => setinfo(data))
+        getItem().then((resp) =>{
+          setinfo(resp)
+        })
     },[])
   return (
     <div>
