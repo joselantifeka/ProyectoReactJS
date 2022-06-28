@@ -5,17 +5,15 @@ import Item from './Item'
 function getItem(){
   return new Promise((resolve,reject) =>{
     setTimeout(() => {
-      let item = [];
       fetch('data.json')
         .then((resp) => resp.json())
         .then((data) => resolve(data))   
-    }, 500);
+    }, 2000);
   })
 }
 
 function ItemList() {
     const [info, setinfo] = useState([])
-
     useEffect(() => {
         getItem().then((resp) =>{
           setinfo(resp)
