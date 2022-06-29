@@ -1,3 +1,4 @@
+import ItemDetailContainer from "./ItemDetailContainer";
 import ItemList from "./ItemList";
 
 function ItemListContainer({ greeting }) {
@@ -8,6 +9,7 @@ function ItemListContainer({ greeting }) {
         </h1>
         <div className="container mx-auto px-5 py-6">
           <ItemList />
+          <ItemDetailContainer />
         </div>
     </div>
     

@@ -1,47 +1,52 @@
 [   
     {
-        "nombre": "Sudadera 1",
-        "stock": 10,
-        "precio": 1000,
-        "categoria": "Sudadera",
         "id": 1,
-        "igm": "",
-        "initial": 1
+        "nombre": "Sudadera 1",
+        "categoria": "Sudadera",
+        "description": "Esta es la descripcion del producto",
+        "precio": 1000,
+        "stock": 10,
+        "initial": 1,
+        "igm": ""
     },
     {
+        "id": 2,
         "nombre": "Sudadera 2",
-        "stock": 5,
+        "categoria": "Sudadera",
+        "description": "Esta es la descripcion del producto",
         "precio": 1500,
-        "categoria": "Sudadera",
-        "id": 2,
-        "igm": "",
-        "initial": 1
+        "stock": 5,
+        "initial": 1,
+        "igm": ""
     },
     {
+        "id": 2,
         "nombre": "Sudadera 3",
-        "stock": 4,
-        "precio": 2000,
         "categoria": "Sudadera",
-        "id": 2,
-        "igm": "",
-        "initial": 1
+        "description": "Esta es la descripcion del producto",
+        "precio": 2000,
+        "stock": 4,
+        "initial": 1,
+        "igm": ""
     },
     {
-        "nombre": "Buzo 1",
-        "stock": 10,
-        "precio": 1000,
-        "categoria": "Buzo",
         "id": 4,
-        "igm": "",
-        "initial": 1
+        "nombre": "Buzo 1",
+        "categoria": "Buzo",
+        "description": "Esta es la descripcion del producto",
+        "precio": 1000,
+        "stock": 10,
+        "initial": 1,
+        "igm": ""
     },
     {
-        "nombre": "Buzo 2",
-        "stock": 10,
-        "precio": 1000,
-        "categoria": "Buzo",
         "id": 5,
-        "igm": "",
-        "initial": 1
+        "nombre": "Buzo 2",
+        "categoria": "Buzo",
+        "description": "Esta es la descripcion del producto",
+        "precio": 1000,
+        "stock": 10,
+        "initial": 1,
+        "igm": ""
     }
 ]
