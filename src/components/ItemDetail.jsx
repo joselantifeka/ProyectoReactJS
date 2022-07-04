@@ -12,7 +12,7 @@ function ItemDetail({name, stock, precio, initial, categoria, description, id}) 
       </div>
       <div className="product-img flex items-center justify-center h-[300px] p-[50px] bg-[#f0f0f0]">
         <img
-          src=""
+          src="" 
           alt="imagen del producto"
           className="max-w-full max-h-full"
         />
