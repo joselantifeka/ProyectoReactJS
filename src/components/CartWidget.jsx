@@ -1,7 +1,7 @@
-import { ShoppingCartIcon } from '@heroicons/react/outline'
+import { ShoppingBagIcon } from '@heroicons/react/outline'
 
 function CartWidget(){
-    return(<ShoppingCartIcon className="h-5 w-5 text-white-500"/>)
+    return(<ShoppingBagIcon className="h-5 w-5 text-white-500 hover:text-[grey]"/>)
 }
 
 export default CartWidget;

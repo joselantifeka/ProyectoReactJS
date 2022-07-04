@@ -1,29 +1,43 @@
-import { useState , useEffect } from "react";
-import React from 'react'
-import ItemDetail from './ItemDetail'
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import React from "react";
+import ItemDetail from "./ItemDetail";
+import data from "../data.json";
 
-function getItemDetail(){
-  return new Promise((resolve,reject) =>{
+function getItemDetail(itemid) {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      fetch('data.json')
-        .then((resp) => resp.json())
-        .then((data) => resolve(data))   
-    }, 2000);
-  })
+      const itemsFind = data.find((item) => {
+        return item.id == itemid;
+      });
+      resolve(itemsFind)
+    }, 0);
+  });
 }
 
 function ItemDetailContainer() {
-    const [info, setinfo] = useState([])
-    useEffect(() => {
-        getItemDetail().then((resp) =>{
-          setinfo(resp[1]);
-        })
-    },[])
+  const [info, setinfo] = useState(false);
+  const { itemid } = useParams();
+  useEffect(() => {
+    getItemDetail(itemid).then((resp) => {
+      setinfo(resp);
+    });
+  }, [itemid]);
+  console.log(info)
   return (
     <div>
-        <ItemDetail name={info.nombre} stock={info.stock} precio={info.precio} initial={info.initial} description={info.description} />
+      {info && (
+        <ItemDetail
+          name={info.nombre}
+          stock={info.stock}
+          precio={info.precio}
+          initial={info.initial}
+          categoria={info.categoria}
+          description={info.description}
+        />
+      )}
     </div>
-  )
+  );
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

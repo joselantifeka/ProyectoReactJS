@@ -10,10 +10,12 @@ function ItemCount({stock, precio, initial}) {
     }
     return (
           <div>
-            <p>${precio}</p>
-            <button onClick={handleSubstract}>-</button>
-            <span className="mx-10">{count}</span>
-            <button onClick={handleAdd}>+</button>
+            <p className="text-[18px] text-[red] font-semibold"><span className="text-[80%] font-normal line-through inline-block mr-[5px]">${precio - (precio/4)}</span>${precio}</p>
+            <div className="mt-[15px]">
+              <button className="" onClick={handleSubstract}>-</button>
+              <span className="mx-10">{count}</span>
+              <button onClick={handleAdd}>+</button>
+            </div> 
           </div>
   );
 }

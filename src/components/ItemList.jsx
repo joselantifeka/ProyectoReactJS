@@ -1,28 +1,13 @@
-import { useState , useEffect } from "react";
+// import { useState , useEffect } from "react";
 import React from 'react'
 import Item from './Item'
 
-function getItem(){
-  return new Promise((resolve,reject) =>{
-    setTimeout(() => {
-      fetch('data.json')
-        .then((resp) => resp.json())
-        .then((data) => resolve(data))   
-    }, 2000);
-  })
-}
 
-function ItemList() {
-    const [info, setinfo] = useState([])
-    useEffect(() => {
-        getItem().then((resp) =>{
-          setinfo(resp)
-        })
-    },[])
+function ItemList({item}) {
   return (
-    <div>
-        {info && info.map(i => <Item name={i.nombre} stock={i.stock} precio={i.precio} initial={i.initial} />)}
-    </div>
+    <>
+        {item.map(i => <Item key={i.id} name={i.nombre} stock={i.stock} precio={i.precio} initial={i.initial} categoria={i.categoria} description={i.description} id={i.id} />)}
+    </>
   )
 }
 
