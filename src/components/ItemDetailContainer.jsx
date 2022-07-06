@@ -10,8 +10,8 @@ function getItemDetail(itemid) {
       const itemsFind = data.find((item) => {
         return item.id == itemid;
       });
-      resolve(itemsFind)
-    }, 0);
+      resolve(itemsFind);
+    }, 2000);
   });
 }
 
@@ -23,7 +23,7 @@ function ItemDetailContainer() {
       setinfo(resp);
     });
   }, [itemid]);
-  console.log(info)
+  console.log(info);
   return (
     <div>
       {info && (

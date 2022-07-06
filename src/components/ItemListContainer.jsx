@@ -16,7 +16,7 @@ function getItem(itemcategory){
       else{
         resolve(data)
       }
-    }, 0);
+    }, 1000);
   })
 }
 

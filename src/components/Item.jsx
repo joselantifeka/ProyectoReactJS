@@ -1,9 +1,9 @@
 import React from "react";
 import ItemCount from "./ItemCount";
 import { PlusCircleIcon } from "@heroicons/react/outline";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-function Item({ name, stock, precio, initial, categoria, description, id}) {
+function Item({ name, stock, precio, initial, categoria, description, id }) {
   return (
     <div className="flex flex-col text-center mb-12 w-[38rem] relative shadow-[0px/2px/7px/#dfdfdf] m-[50px/auto] bg-[#fafafa]">
       <div className="badge absolute left-0 top-20 uppercase text-[13px] font-bold bg-red-500 text-white px-[10px] py-[3px]">
@@ -29,7 +29,12 @@ function Item({ name, stock, precio, initial, categoria, description, id}) {
         <div className="product-button-details overflow-hidden border-t-[1px] border-solid border-[#eee]">
           <div className="flex aling-center my-[20px]">
             <div className=" w-1/2">
-              <ItemCount stock={stock} precio={precio} initial={initial} />
+              <p className="text-[18px] text-[red] font-semibold">
+                <span className="text-[80%] font-normal line-through inline-block mr-[5px]">
+                  ${precio - precio / 4}
+                </span>
+                ${precio}
+              </p>
             </div>
             <div className="w-1/2 m-auto flex aling-center justify-center">
               <Link to={`/producto/${id}`} className="">
