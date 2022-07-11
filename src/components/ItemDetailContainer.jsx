@@ -11,7 +11,7 @@ function getItemDetail(itemid) {
         return item.id == itemid;
       });
       resolve(itemsFind);
-    }, 2000);
+    }, 1000);
   });
 }
 
@@ -23,17 +23,11 @@ function ItemDetailContainer() {
       setinfo(resp);
     });
   }, [itemid]);
-  console.log(info);
   return (
     <div>
       {info && (
         <ItemDetail
-          name={info.nombre}
-          stock={info.stock}
-          precio={info.precio}
-          initial={info.initial}
-          categoria={info.categoria}
-          description={info.description}
+          item={info}
         />
       )}
     </div>
