@@ -18,18 +18,17 @@ function getItemDetail(itemid) {
 function ItemDetailContainer() {
   const [info, setinfo] = useState(false);
   const { itemid } = useParams();
+  const [loading, setLoading] = useState(true); 
   useEffect(() => {
     getItemDetail(itemid).then((resp) => {
       setinfo(resp);
+      setLoading(false)
     });
   }, [itemid]);
   return (
     <div>
-      {info && (
-        <ItemDetail
-          item={info}
-        />
-      )}
+      {loading && <p className="text-center my-[14%]">Loading...</p>}
+      {info && (<ItemDetail item={info}/>)}
     </div>
   );
 }

@@ -22,18 +22,21 @@ function getItem(itemcategory){
 
 function ItemListContainer({ greeting }) {
   const [info, setinfo] = useState([]);
-  const { itemcategory } = useParams()
+  const { itemcategory } = useParams();
+  const [loading, setLoading] = useState(true); 
   useEffect(() => {
       getItem(itemcategory).then((resp) =>{
         setinfo(resp)
+        setLoading(false)
       })
-  },[itemcategory])
+  },[itemcategory]);
   return (
     <div className="container mx-auto px-5 py-6 text-center">
         <h1 className="font-bold mb">
           Catalogo
         </h1>
         <div className="mx-auto px-5 py-6 flex flex-wrap gap-[2rem] justify-center">
+          {loading && <p>Loading...</p>}
           {(info.length > 0 || info) && <ItemList item={info}/>}
         </div>
     </div>
