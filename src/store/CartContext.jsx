@@ -30,6 +30,7 @@ export function CartContextProvider({ children }) {
     const CartFilter = newCart.filter((item) => {
       return newCart.id !== id;
     });
+    setCart[CartFilter]
   };
 
   const isInCart = (id) => {
@@ -41,7 +42,7 @@ export function CartContextProvider({ children }) {
     } else return false;
   };
   const clear = () =>{
-    cart = [];
+    setCart([])
   }
 
   return (
