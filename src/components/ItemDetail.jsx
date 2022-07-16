@@ -1,14 +1,12 @@
-import React,{ useState } from "react";
+import React from "react";
 import ItemCount from "./ItemCount";
-// import { Link } from "react-router-dom";
 import useCartContext from "../store/CartContext";
+import { Link } from "react-router-dom";
 
 
 function ItemDetail({item}){
-  const [isInCart, setisInCart] = useState(false);
-  const { addToCart } = useCartContext()
+  const { addToCart, isInCart } = useCartContext()
   function onAdd(cantidad){
-    setisInCart(true);
     addToCart(item, cantidad)
   }
   return (
@@ -18,7 +16,7 @@ function ItemDetail({item}){
       </div>
       <div className="product-img flex items-center justify-center h-[300px] p-[50px] bg-[#f0f0f0]">
         <img
-          src=""
+          src={item.img}
           alt="imagen del producto"
           className="max-w-full max-h-full"
         />
@@ -34,10 +32,18 @@ function ItemDetail({item}){
           {item.description}
         </p>
         <div className="product-button-details overflow-hidden border-t-[1px] border-solid border-[#eee]">
-          { isInCart ?
-          <>
-            <p className="my-[10px] text-[#00ef]">Ir al carrito</p>
-          </>
+          { isInCart(item.id) ?
+          <div>
+            <p className="my-[15px]">producto agregado al carrito!</p>
+            <div className="flex justify-between mx-[10%] items-center">
+              <Link to="/">
+                <p className="my-[15px] text-[red] hover:text-[#FF00ce]">Seguir comprando</p>
+              </Link>
+              <Link to="/cart">
+                <p className="my-[15px] text-[red] hover:text-[#FF00ce]">Ir al carrito</p>
+              </Link>
+            </div>
+          </div>  
           :<ItemCount stock={item.stock} precio={item.precio} initial={item.initial} onAdd={onAdd}/>}
         </div>
       </div>

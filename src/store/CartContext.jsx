@@ -27,10 +27,10 @@ export function CartContextProvider({ children }) {
 
   const removeFromeCart = (id) => {
     const newCart = [...cart];
-    const CartFilter = newCart.filter((item) => {
-      return newCart.id !== id;
+    const CartFilter = newCart.filter(item => {
+      return item.id !== id;
     });
-    setCart([CartFilter])
+    setCart(CartFilter)
   };
 
   const isInCart = (id) => {
@@ -45,8 +45,14 @@ export function CartContextProvider({ children }) {
     setCart([])
   }
 
+  const calcPriceCart = () =>{
+    let total = 0;
+    cart.forEach((itemCart) => total += itemCart.cant * itemCart.precio )
+    return total 
+  }
+
   return (
-    <Provider value={{cart, addToCart, clear, removeFromeCart }}>{children}</Provider>
+    <Provider value={{cart, calcPriceCart, addToCart, clear, removeFromeCart, isInCart }}>{children}</Provider>
   );
 }
 
