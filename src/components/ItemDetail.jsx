@@ -26,7 +26,7 @@ function ItemDetail({item}){
           {item.categoria}
         </span>
         <h4 className="font-medium block mb-[18px] uppercase text-[#363636] duration-[0.3s] hover:text-[red]">
-          {item.name}
+          {item.nombre}
         </h4>
         <p className="text-[15px] leading-[22px] mb-[18px] text-[#999]">
           {item.description}

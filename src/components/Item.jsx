@@ -31,7 +31,7 @@ function Item({ name, stock, precio, initial, categoria, description, id }) {
             <div className=" w-1/2">
               <p className="text-[18px] text-[red] font-semibold">
                 <span className="text-[80%] font-normal line-through inline-block mr-[5px]">
-                  ${precio - precio / 4}
+                  ${precio + precio / 4}
                 </span>
                 ${precio}
               </p>

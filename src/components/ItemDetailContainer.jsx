@@ -2,33 +2,32 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import React from "react";
 import ItemDetail from "./ItemDetail";
-import data from "../data.json";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
-function getItemDetail(itemid) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const itemsFind = data.find((item) => {
-        return item.id == itemid;
-      });
-      resolve(itemsFind);
-    }, 1000);
-  });
-}
 
 function ItemDetailContainer() {
+
   const [info, setinfo] = useState(false);
   const { itemid } = useParams();
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    getItemDetail(itemid).then((resp) => {
-      setinfo(resp);
-      setLoading(false)
+    const db = getFirestore();
+    const q = query(collection(db, "items"), where("id", "==", Number(itemid)));
+    getDocs(q).then((snapshot) => {
+      setinfo(snapshot.docs.map((doc) => doc.data()));
+      setLoading(false);
     });
   }, [itemid]);
   return (
     <div>
       {loading && <p className="text-center my-[14%]">Loading...</p>}
-      {info && (<ItemDetail item={info}/>)}
+      {info.length && <ItemDetail item={info[0]} />}
     </div>
   );
 }

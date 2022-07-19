@@ -36,7 +36,7 @@ function CartView() {
             );
           })}
         </div>
-        <div className="mx-[20px] flex justify-between font-medium">
+        <div className="mx-[20px] my-[20px] flex justify-between font-medium">
           <p>Total: <span className="font-normal">${calcPriceCart()}</span></p>
           <button className="">Ir a pagar</button> 
           <button className="" onClick={clear}>

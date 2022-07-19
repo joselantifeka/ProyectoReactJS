@@ -17,7 +17,7 @@ function ItemCount({ stock, precio, initial, onAdd }) {
           <div>
             <p className="text-[18px] text-[red] font-semibold">
               <span className="text-[80%] font-normal line-through inline-block mr-[5px]">
-                ${precio - precio / 4}
+                ${precio + precio / 4}
               </span>
               ${precio}
             </p>
