@@ -5,9 +5,30 @@ import { Link } from "react-router-dom";
 
 
 function ItemDetail({item}){
-  const { addToCart, isInCart } = useCartContext()
+  const { addToCart, isInCart, orderId } = useCartContext()
   function onAdd(cantidad){
     addToCart(item, cantidad)
+  }
+  function comprobation(orderId, isInCart){
+    if(orderId){
+      return <Link to={`/ordern/${orderId}`} className='hover:text-[orange] hover:font-semibold'>
+        <p className="my-[15px]">¡Tienes una orden en proceso!</p>
+      </Link>
+    }else if(isInCart(item.id)){
+      return <div>
+      <p className="my-[15px]">producto agregado al carrito!</p>
+      <div className="flex justify-between mx-[10%] items-center">
+        <Link to="/">
+          <p className="my-[15px] text-[red] hover:text-[#FF00ce]">Seguir comprando</p>
+        </Link>
+        <Link to="/cart">
+          <p className="my-[15px] text-[red] hover:text-[#FF00ce]">Ir al carrito</p>
+        </Link>
+      </div>
+    </div> 
+    } else{
+      return <ItemCount stock={item.stock} precio={item.precio} initial={item.initial} onAdd={onAdd}/>
+    }
   }
   return (
     <div className="flex flex-col text-center m-auto mt-[3.5rem] w-[38rem] relative shadow-[0px/2px/7px/#dfdfdf] m-[50px/auto] bg-[#fafafa]">
@@ -32,7 +53,7 @@ function ItemDetail({item}){
           {item.description}
         </p>
         <div className="product-button-details overflow-hidden border-t-[1px] border-solid border-[#eee]">
-          { isInCart(item.id) ?
+          {/* { isInCart(item.id) ?
           <div>
             <p className="my-[15px]">producto agregado al carrito!</p>
             <div className="flex justify-between mx-[10%] items-center">
@@ -44,7 +65,8 @@ function ItemDetail({item}){
               </Link>
             </div>
           </div>  
-          :<ItemCount stock={item.stock} precio={item.precio} initial={item.initial} onAdd={onAdd}/>}
+          :<ItemCount stock={item.stock} precio={item.precio} initial={item.initial} onAdd={onAdd}/>} */}
+          {comprobation(orderId, isInCart)}
         </div>
       </div>
     </div>

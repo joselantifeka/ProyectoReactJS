@@ -2,6 +2,7 @@ import React from "react";
 import useCartContext from "../store/CartContext";
 import { TrashIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
+import PaymodalContainer from "./PaymodalContainer";
 
 function CartView() {
   const { cart, removeFromeCart, clear, calcPriceCart } = useCartContext();
@@ -38,7 +39,7 @@ function CartView() {
         </div>
         <div className="mx-[20px] my-[20px] flex justify-between font-medium">
           <p>Total: <span className="font-normal">${calcPriceCart()}</span></p>
-          <button className="">Ir a pagar</button> 
+          <PaymodalContainer>Ir a pagar</PaymodalContainer>
           <button className="" onClick={clear}>
             Vaciar carrito{" "}
           </button>

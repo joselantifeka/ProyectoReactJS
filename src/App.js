@@ -10,6 +10,7 @@ import { CartContextProvider } from "./store/CartContext";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import OrderContainer from "./components/OrderContainer";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/catalogo" element={<ItemListContainer />} />
           <Route path="/catalogo/:itemcategory" element={<ItemListContainer />} />
           <Route path="/producto/:itemid" element={<ItemDetailContainer />} />
+          <Route path="/ordern/:orderId" element={<OrderContainer />} />
           <Route path="/cart" element={<CartView />} />
         </Routes>
       </BrowserRouter>

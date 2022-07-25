@@ -1,9 +1,14 @@
 import logo from "../logo.png";
 import CartWidget from "./CartWidget";
 import {Link} from "react-router-dom";
+import OrderWidget from "./OrderWidget";
+import useCartContext from "../store/CartContext";
+
 
 function NavBar() {
+  const { orderId } = useCartContext();
   return (
+    <>
     <nav className="flex justify-between px-6 py-4 bg-black text-white items-center">
       <picture className="3/5 flex items-center gap-[30px]">
         <Link to="/catalogo">
@@ -34,6 +39,8 @@ function NavBar() {
         </li>
       </ul>
     </nav>
+    {orderId && <Link to={`/ordern/${orderId}`}><OrderWidget /></Link>}
+    </>
   );
 }
 

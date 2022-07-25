@@ -7,6 +7,13 @@ const useCartContext = () => useContext(CartContext);
 const { Provider } = CartContext;
 
 export function CartContextProvider({ children }) {
+  const [orderId, setOrderId] = useState(() =>{
+    if(localStorage.length == 0){
+      return false
+    } else{
+      return localStorage.getItem('ID')
+    }
+  });
   const [cart, setCart] = useState([]);
 
   const addToCart = (item, cant) => {
@@ -52,7 +59,7 @@ export function CartContextProvider({ children }) {
   }
 
   return (
-    <Provider value={{cart, calcPriceCart, addToCart, clear, removeFromeCart, isInCart }}>{children}</Provider>
+    <Provider value={{cart, calcPriceCart, addToCart, clear, removeFromeCart, isInCart, orderId, setOrderId }}>{children}</Provider>
   );
 }
 
