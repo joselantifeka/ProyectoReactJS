@@ -1,7 +1,7 @@
 import logo from "../logo.png";
-import CartWidget from "./CartWidget";
+import CartWidget from "./Cart/CartWidget";
 import {Link} from "react-router-dom";
-import OrderWidget from "./OrderWidget";
+import OrderWidget from "./Order/OrderWidget";
 import useCartContext from "../store/CartContext";
 
 

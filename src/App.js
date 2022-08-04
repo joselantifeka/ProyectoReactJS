@@ -1,21 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CartView from "./components/CartView";
-// import ItemDetail from "./components/ItemDetail";
-import ItemDetailContainer from "./components/ItemDetailContainer";
-// import Body from "./components/Body";
-import ItemListContainer from "./components/ItemListContainer";
+import CartView from "./components/Cart/CartView";
+import ItemDetailContainer from "./components/Item/ItemDetailContainer";
+import ItemListContainer from "./components/Item/ItemListContainer";
 import NavBar from "./components/NavBar";
 import { CartContextProvider } from "./store/CartContext";
-
-
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import OrderContainer from "./components/OrderContainer";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import OrderContainer from "./components/Order/OrderContainer";
 const firebaseConfig = {
   apiKey: "AIzaSyBGEdK9mfkBySU2yQfZnVXfLkibU1Njl0c",
   authDomain: "gavishop-1b325.firebaseapp.com",
