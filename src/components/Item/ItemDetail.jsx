@@ -31,11 +31,11 @@ function ItemDetail({item}){
     }
   }
   return (
-    <div className="flex flex-col text-center m-auto mt-[3.5rem] w-[38rem] relative shadow-[0px/2px/7px/#dfdfdf] m-[50px/auto] bg-[#fafafa]">
+    <div className="flex flex-col text-center m-auto mt-[3.5rem] min-w-min max-w-[38rem] relative shadow-[0px/2px/7px/#dfdfdf] m-[50px/auto] bg-[#fafafa] ">
       <div className="badge absolute left-0 top-20 uppercase text-[13px] font-bold bg-red-500 text-white px-[10px] py-[3px]">
         <p>New product</p>
       </div>
-      <div className="product-img flex items-center justify-center h-[300px] p-[50px] bg-[#f0f0f0]">
+      <div className="product-img flex items-center justify-center h-[300px] bg-[#ffff]">
         <img
           src={item.img}
           alt="imagen del producto"

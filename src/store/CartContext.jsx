@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
 const useCartContext = () => useContext(CartContext);
@@ -7,14 +7,14 @@ const useCartContext = () => useContext(CartContext);
 const { Provider } = CartContext;
 
 export function CartContextProvider({ children }) {
-  const [orderId, setOrderId] = useState(() =>{
-    if(localStorage.length == 0){
-      return false
-    } else{
-      return localStorage.getItem('ID')
+  const [cart, setCart] = useState([]);
+  const [orderId, setOrderId] = useState(() => {
+    if (localStorage.length == 0) {
+      return false;
+    } else {
+      return localStorage.getItem("ID");
     }
   });
-  const [cart, setCart] = useState([]);
 
   const addToCart = (item, cant) => {
     if (isInCart(item.id)) {
@@ -34,10 +34,10 @@ export function CartContextProvider({ children }) {
 
   const removeFromeCart = (id) => {
     const newCart = [...cart];
-    const CartFilter = newCart.filter(item => {
+    const CartFilter = newCart.filter((item) => {
       return item.id !== id;
     });
-    setCart(CartFilter)
+    setCart(CartFilter);
   };
 
   const isInCart = (id) => {
@@ -48,18 +48,47 @@ export function CartContextProvider({ children }) {
       return comprobation;
     } else return false;
   };
-  const clear = () =>{
-    setCart([])
-  }
+  const clear = () => {
+    setCart([]);
+  };
 
-  const calcPriceCart = () =>{
+  const calcPriceCart = () => {
     let total = 0;
-    cart.forEach((itemCart) => total += itemCart.cant * itemCart.precio )
-    return total 
-  }
+    cart.forEach((itemCart) => (total += itemCart.cant * itemCart.precio));
+    return total;
+  };
+
+  const [width, setWidth] = useState(window.innerWidth);
+  const handleResize = () => {
+    setWidth(window.innerWidth);
+  };
+  
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
-    <Provider value={{cart, calcPriceCart, addToCart, clear, removeFromeCart, isInCart, orderId, setOrderId }}>{children}</Provider>
+    <Provider
+      value={{
+        cart,
+        calcPriceCart,
+        addToCart,
+        clear,
+        removeFromeCart,
+        isInCart,
+        orderId,
+        setOrderId,
+        width,
+        setWidth,
+
+      }}
+    >
+      {children}
+    </Provider>
   );
 }
 

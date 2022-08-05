@@ -12,7 +12,7 @@ function PaymodalCheck({ setModalOn }) {
     }
   return (
     <>
-        <div className='w-[30rem] flex flex-col items-center'>
+        <div className='w-[310px] flex flex-col items-center'>
             <BadgeCheckIcon className='h-[60px] '/>
             <h2 className='mb-[20px]'>¡Orden generada con Exito!</h2>
             <p className='font-normal'>En las proximas horas recibiras un mail sobre la informacion de tu orden y el estado de tu orden</p>
