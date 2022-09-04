@@ -10,9 +10,7 @@ import {
   where,
 } from "firebase/firestore";
 
-
 function ItemDetailContainer() {
-
   const [info, setinfo] = useState(false);
   const { itemid } = useParams();
   const [loading, setLoading] = useState(true);
@@ -22,7 +20,7 @@ function ItemDetailContainer() {
     getDocs(q).then((snapshot) => {
       setinfo(snapshot.docs.map((doc) => doc.data()));
       setLoading(false);
-    });
+    }).catch((err) => console.log(err));
   }, [itemid]);
   return (
     <div>

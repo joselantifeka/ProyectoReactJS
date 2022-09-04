@@ -3,7 +3,6 @@ import { PlusCircleIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
 function Item({ name, stock, precio, initial, categoria, description, id, img }) {
-  console.log(img)
   return (
     <div className="flex flex-col text-center mb-12 w-[38rem] relative shadow-[0px/2px/7px/#dfdfdf] m-[50px/auto] bg-[#fafafa]">
       <div className="badge absolute left-0 top-20 uppercase text-[13px] font-bold bg-red-500 text-white px-[10px] py-[3px]">

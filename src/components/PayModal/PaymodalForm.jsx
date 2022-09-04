@@ -31,7 +31,6 @@ function PaymodalForm({
 
   const submitHandler = () => {
     if (email === "" || nombre === "" || numero === "") {
-      console.log("vacio");
       setAlerta(true);
     } else {
       setAlerta(false);
@@ -45,7 +44,6 @@ function PaymodalForm({
         items: cart,
         total: calcPriceCart(),
       };
-      console.log(order);
       const db = getFirestore();
 
       const ordersCollection = collection(db, "orders");
